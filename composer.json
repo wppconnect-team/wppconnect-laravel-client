@@ -1,0 +1,39 @@
+{
+    "name": "wppconnect-team/wppconnect-laravel-client",
+    "description": "A simple API with Guzzle wrapper, providing easy access to wppconnect's endpoints.",
+    "homepage": "https://github.com/wppconnect-team/wppconnect-laravel-client",
+    "keywords": [
+        "laravel",
+        "guzzle",
+        "rest client",
+        "wppconnect"
+    ],
+    "authors": [
+        {
+            "name": "bgastaldi"
+        }
+    ],
+    "license": "MIT",
+    "type": "libr",
+    "require": {
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "illuminate/support": ">=8.0"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "WPPConnectTeam\\Wppconnect\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WPPConnectTeam\\Wppconnect\\GuzzleApiServiceProvider"
+            ],
+            "aliases": {
+                "Wppconnect": "WPPConnectTeam\\Wppconnect\\Facades\\Wppconnect"
+            }
+        }
+    }
+}
