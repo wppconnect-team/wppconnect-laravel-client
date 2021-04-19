@@ -122,6 +122,7 @@ class WppconnectController extends Controller
             $response = json_decode($response->getBody()->getContents(),true);
             Session::put('init', true);
         endif;
+	
     }
  }
  ```
