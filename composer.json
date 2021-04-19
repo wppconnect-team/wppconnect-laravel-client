@@ -29,7 +29,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "WPPConnectTeam\\Wppconnect\\GuzzleApiServiceProvider"
+                "WPPConnectTeam\\Wppconnect\\WppconnectServiceProvider"
             ],
             "aliases": {
                 "Wppconnect": "WPPConnectTeam\\Wppconnect\\Facades\\Wppconnect"
