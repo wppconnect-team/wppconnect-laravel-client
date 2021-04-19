@@ -1,5 +1,5 @@
-Wppconnect Laravel API
-========
+# WPPConnect Team
+## _Wppconnect Laravel Client_
 
 A simple API with Guzzle wrapper, providing easy access to wppconnect's endpoints.
 
@@ -15,13 +15,13 @@ Note that the above requirements will always reflect the latest release. Older r
 Require this package with Composer (Packagist), using the following command:
 
 ``` bash
-$ composer require bgastaldi/wppconnect-laravel-api
+$ composer require wppconnect-team/wppconnect-laravel-client
 ```
 
 Register the GuzzleApiServiceProvider to the providers array in `config/app.php`:
 
 ``` php
- bgastaldi\Wppconnect\GuzzleApiServiceProvider::class
+ WPPConnectTeam\Wppconnect\GuzzleApiServiceProvider::class
 ```
 
 Publish vendor files (config file):
@@ -32,7 +32,7 @@ $ php artisan vendor:publish
 **Optional**
 Register the facade in `config/app.php`:
 ``` php
-'Wppconnect' => bgastaldi\Wppconnect\Facades\Wppconnect::class
+'Wppconnect' => WPPConnectTeam\Wppconnect\Facades\Wppconnect::class
 ```
 
 ## Config
