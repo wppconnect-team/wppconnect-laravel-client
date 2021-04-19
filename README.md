@@ -97,7 +97,7 @@ class WppconnectController extends Controller
 
     public function index(){
 
-        #Function: Generated Token
+	#Function: Generated Token
 	# /api/:session/generate-token
 	
         //Session::flush();
@@ -111,7 +111,7 @@ class WppconnectController extends Controller
             endif;
         endif;
 
-        #Function: Start Session 
+	#Function: Start Session 
 	# /api/:session/start-session
 		
         if(Session::get('token') and Session::get('session') and !Session::get('init')):
@@ -126,7 +126,7 @@ class WppconnectController extends Controller
  }
  ```
  ``` php
-        #Function: Check Connection Session
+	#Function: Check Connection Session
 	# /api/:session/check-connection-session
 		
         if(Session::get('token') and Session::get('session') and Session::get('init')):
@@ -139,7 +139,7 @@ class WppconnectController extends Controller
         endif;
  ```
  ``` php
-        #Function: Close Session
+	#Function: Close Session
 	# /api/:session/close-session
 
         if(Session::get('token') and Session::get('session') and Session::get('init')):
@@ -152,7 +152,7 @@ class WppconnectController extends Controller
         endif;
  ```
  ``` php
-        #Function: Send Message
+ 	#Function: Send Message
 	# /api/:session/send-message
 		
         if(Session::get('token') and Session::get('session') and Session::get('init')):
