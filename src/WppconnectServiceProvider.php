@@ -6,7 +6,7 @@ namespace WPPConnectTeam\Wppconnect;
 
 use Illuminate\Support\ServiceProvider;
 
-class GuzzleApiServiceProvider extends ServiceProvider
+class WppconnectServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

@@ -1,5 +1,5 @@
 {
-    "name": "wppconnect-team/wppconnect-laravel-client",
+    "name": " wppconnect-team/wppconnect-laravel-client",
     "description": "A simple API with Guzzle wrapper, providing easy access to wppconnect's endpoints.",
     "homepage": "https://github.com/wppconnect-team/wppconnect-laravel-client",
     "keywords": [
@@ -29,7 +29,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "WPPConnectTeam\\Wppconnect\\GuzzleApiServiceProvider"
+                "WPPConnectTeam\\Wppconnect\\WppconnectServiceProvider"
             ],
             "aliases": {
                 "Wppconnect": "WPPConnectTeam\\Wppconnect\\Facades\\Wppconnect"
