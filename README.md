@@ -129,43 +129,43 @@ class WppconnectController extends Controller
 	#Function: Check Connection Session
 	# /api/:session/check-connection-session
 		
-        if(Session::get('token') and Session::get('session') and Session::get('init')):
-            Wppconnect::make($this->url);
-            $response = Wppconnect::to('/api/'. Session::get('session').'/check-connection-session')->withHeaders([
-                'Authorization' => 'Bearer '.Session::get('token')
-            ])->asJson()->get();
-            $response = json_decode($response->getBody()->getContents(),true);
-            dd($response);
-        endif;
+	if(Session::get('token') and Session::get('session') and Session::get('init')):
+	    Wppconnect::make($this->url);
+	    $response = Wppconnect::to('/api/'. Session::get('session').'/check-connection-session')->withHeaders([
+		'Authorization' => 'Bearer '.Session::get('token')
+	    ])->asJson()->get();
+	    $response = json_decode($response->getBody()->getContents(),true);
+	    dd($response);
+	endif;
  ```
  ``` php
 	#Function: Close Session
 	# /api/:session/close-session
 
-        if(Session::get('token') and Session::get('session') and Session::get('init')):
-            Wppconnect::make($this->url);
-            $response = Wppconnect::to('/api/'. Session::get('session').'/close-session')->withHeaders([
-                'Authorization' => 'Bearer '.Session::get('token')
-            ])->asJson()->post();
-            $response = json_decode($response->getBody()->getContents(),true);
-            dd($response);
-        endif;
+	if(Session::get('token') and Session::get('session') and Session::get('init')):
+	    Wppconnect::make($this->url);
+	    $response = Wppconnect::to('/api/'. Session::get('session').'/close-session')->withHeaders([
+		'Authorization' => 'Bearer '.Session::get('token')
+	    ])->asJson()->post();
+	    $response = json_decode($response->getBody()->getContents(),true);
+	    dd($response);
+	endif;
  ```
  ``` php
- 	#Function: Send Message
+	#Function: Send Message
 	# /api/:session/send-message
 		
-        if(Session::get('token') and Session::get('session') and Session::get('init')):
-            Wppconnect::make($this->url);
-            $response = Wppconnect::to('/api/'. Session::get('session').'/send-message')->withBody([
-                'phone' => '0000000000000',
-                'message' => 'Opa, funciona mesmo!'
-            ])->withHeaders([
-                'Authorization' => 'Bearer '.Session::get('token')
-            ])->asJson()->post();
-            $response = json_decode($response->getBody()->getContents(),true);
-            dd($response);
-        endif;
+	if(Session::get('token') and Session::get('session') and Session::get('init')):
+	    Wppconnect::make($this->url);
+	    $response = Wppconnect::to('/api/'. Session::get('session').'/send-message')->withBody([
+		'phone' => '0000000000000',
+		'message' => 'Opa, funciona mesmo!'
+	    ])->withHeaders([
+		'Authorization' => 'Bearer '.Session::get('token')
+	    ])->asJson()->post();
+	    $response = json_decode($response->getBody()->getContents(),true);
+	    dd($response);
+	endif;
  ```
  ``` php	
 	#Function: Send File Base64
