@@ -18,7 +18,7 @@ Require this package with Composer (Packagist), using the following command:
 $ composer require wppconnect-team/wppconnect-laravel-client
 ```
 
-Register the GuzzleApiServiceProvider to the providers array in `config/app.php`:
+Register the WppconnectServiceProvider to the providers array in `config/app.php`:
 
 ``` php
  WPPConnectTeam\Wppconnect\WppconnectServiceProvider::class
