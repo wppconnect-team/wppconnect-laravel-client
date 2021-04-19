@@ -98,6 +98,8 @@ class WppconnectController extends Controller
     public function index(){
 
         #Function: Generated Token
+	# /api/:session/generate-token
+	
         //Session::flush();
         if(!Session::get('token') and !Session::get('session')):
             Wppconnect::make($this->url);
@@ -110,6 +112,8 @@ class WppconnectController extends Controller
         endif;
 
         #Function: Start Session 
+	# /api/:session/start-session
+		
         if(Session::get('token') and Session::get('session') and !Session::get('init')):
             Wppconnect::make($this->url);
             $response = Wppconnect::to('/api/'.Session::get('session').'/start-session')->withHeaders([
@@ -123,6 +127,8 @@ class WppconnectController extends Controller
  ```
  ``` php
         #Function: Check Connection Session
+	# /api/:session/check-connection-session
+		
         if(Session::get('token') and Session::get('session') and Session::get('init')):
             Wppconnect::make($this->url);
             $response = Wppconnect::to('/api/'. Session::get('session').'/check-connection-session')->withHeaders([
@@ -134,6 +140,8 @@ class WppconnectController extends Controller
  ```
  ``` php
         #Function: Close Session
+	# /api/:session/close-session
+
         if(Session::get('token') and Session::get('session') and Session::get('init')):
             Wppconnect::make($this->url);
             $response = Wppconnect::to('/api/'. Session::get('session').'/close-session')->withHeaders([
@@ -145,6 +153,8 @@ class WppconnectController extends Controller
  ```
  ``` php
         #Function: Send Message
+	# /api/:session/send-message
+		
         if(Session::get('token') and Session::get('session') and Session::get('init')):
             Wppconnect::make($this->url);
             $response = Wppconnect::to('/api/'. Session::get('session').'/send-message')->withBody([
@@ -159,6 +169,8 @@ class WppconnectController extends Controller
  ```
  ``` php	
 	#Function: Send File Base64
+	# /api/:session/send-file-base64
+		
 	if(Session::get('token') and Session::get('session') and Session::get('init')):
 	    Wppconnect::make($this->url);
 	    $response = Wppconnect::to('/api/'. Session::get('session').'/send-file-base64')->withBody([
