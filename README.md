@@ -21,7 +21,7 @@ $ composer require wppconnect-team/wppconnect-laravel-client
 Register the GuzzleApiServiceProvider to the providers array in `config/app.php`:
 
 ``` php
- WPPConnectTeam\Wppconnect\GuzzleApiServiceProvider::class
+ WPPConnectTeam\Wppconnect\WppconnectServiceProvider::class
 ```
 
 Publish vendor files (config file):
@@ -83,6 +83,7 @@ class WppconnectController extends Controller
 
     protected $url;
     protected $key;
+    protected $session;
 
     /**
      * __construct function
@@ -91,6 +92,7 @@ class WppconnectController extends Controller
     {
         $this->url = config('wppconnect.defaults.base_uri');
         $this->key = config('wppconnect.defaults.secret_key');
+	$this->session = "mySession";
     }
 
     public function index(){
@@ -101,7 +103,7 @@ class WppconnectController extends Controller
         //Session::flush();
         if(!Session::get('token') and !Session::get('session')):
             Wppconnect::make($this->url);
-            $response = Wppconnect::to('/api/mySession/'.$this->key.'/generate-token')->asJson()->post();
+            $response = Wppconnect::to('/api/'.$this->session.'/'.$this->key.'/generate-token')->asJson()->post();
             $response = json_decode($response->getBody()->getContents(),true);
             if($response['status'] == 'Success'):
                 Session::put('token', $response['token']);
