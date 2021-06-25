@@ -1,64 +1,61 @@
 # WPPConnect Team
 ## _Wppconnect Laravel Client_
 
-A simple API with Guzzle wrapper, providing easy access to wppconnect's endpoints.
+Uma API simples com empacotador Guzzle, fornecendo acesso fácil aos endpoints do WPPConnect Server.
 
-# Requirements
+# Requisitos
 
-* PHP 7.4 or newer
-* Laravel [8.x](https://laravel.com/docs/8.x) or newer
+* PHP 7.4 ou superior.
+* Laravel [8.x](https://laravel.com/docs/8.x) ou superior.
 
-Note that the above requirements will always reflect the latest release. Older releases may support older PHP and Laravel versions.
+## Intalação - Laravel
 
-## Install - Laravel
-
-Require this package with Composer (Packagist), using the following command:
+Baixe o pacote com o Composer (Packagist), utilizando o seguinte comando:
 
 ``` bash
 $ composer require wppconnect-team/wppconnect-laravel-client
 ```
 
-Register the WppconnectServiceProvider to the providers array in `config/app.php`:
+Registre o WppconnectServiceProvider nos providers dentro de `config/app.php`:
 
 ``` php
  WPPConnectTeam\Wppconnect\WppconnectServiceProvider::class
 ```
 
-Publish vendor files (config file):
+Publique os arquivos do vendo (arquivo de configuração):
 ``` bash
 $ php artisan vendor:publish
 ```
 
-**Optional**
-Register the facade in `config/app.php`:
+**Opcional**
+Registre o facade em `config/app.php`:
 ``` php
 'Wppconnect' => WPPConnectTeam\Wppconnect\Facades\Wppconnect::class
 ```
 
-## Config
+## Configuração
 
-Associative array of Request Options, that are applied to every request, created by the client.
+Configuração aplicada a todas as solicitações criadas pela API.
 
-Example:
+Exemplo:
 ``` php
 'defaults' => [
      /**
-      * Configures a base URL for the client so that requests created using a relative URL are combined with the base_url
-      * See: http://guzzle.readthedocs.org/en/latest/quickstart.html#creating-a-client
+      * URL do WPPConnect Server
       */
      'base_uri' => 'http://192.168.0.39:21465',
 
      /**
       * Secret Key
-      * See: https://github.com/wppconnect-team/wppconnect-server#secret-key
+      * Veja: https://github.com/wppconnect-team/wppconnect-server#secret-key
       */
      'secret_key' => 'MYKeYPHP'
  ]
 ```
 
-## Usage
+## Uso
 
-You can use this package without any configuration. Just use the Wppconnect facade in your controller or Inject into the class where you need the client:
+Utilize este pacote sem qualquer configuração com o Wppconnect facade em seu controlador, ou, injete-o na classe onde o cliente se faz necessário:
 
 ```php
 /**
@@ -75,7 +72,7 @@ public function __construct(Wppconnect $client)
 }
 ```
 
-**Facade Example:**
+**Exemplo com o Facade:**
 
 ``` php
 class WppconnectController extends Controller
@@ -159,7 +156,7 @@ class WppconnectController extends Controller
 	if(Session::get('token') and Session::get('session') and Session::get('init')):
 	    Wppconnect::make($this->url);
 	    $response = Wppconnect::to('/api/'. Session::get('session').'/send-message')->withBody([
-		'phone' => '0000000000000',
+		'phone' => '5500000000000',
 		'message' => 'Opa, funciona mesmo!'
 	    ])->withHeaders([
 		'Authorization' => 'Bearer '.Session::get('token')
@@ -175,7 +172,7 @@ class WppconnectController extends Controller
 	if(Session::get('token') and Session::get('session') and Session::get('init')):
 	    Wppconnect::make($this->url);
 	    $response = Wppconnect::to('/api/'. Session::get('session').'/send-file-base64')->withBody([
-		'phone' => '0000000000000',
+		'phone' => '5500000000000',
 		'base64' => 'data:image/jpg;base64,' . base64_encode(file_get_contents(resource_path('/img/xpto.jpg')))
 	    ])->withHeaders([
 		'Authorization' => 'Bearer '.Session::get('token')
@@ -185,13 +182,13 @@ class WppconnectController extends Controller
 	endif;
 ```
 
-# Debugging
+# Debug
 
-Using `debug(bool|resource)` before sending a request turns on Guzzle's debugger, more information about that [here](http://docs.guzzlephp.org/en/stable/request-options.html#debug).
+Usar `debug(bool|resource)` antes de enviar uma solicitação para ativar o depurador do Guzzle. Para mais informações acesse a [documentação](http://docs.guzzlephp.org/en/stable/request-options.html#debug).
 
-The debugger is turned off after every request, if you need to debug multiple requests sent sequentially you will need to turn on debugging for all of them.
+O debug é desligado após cada solicitação, se você precisar depurar várias solicitações enviadas sequencialmente, será necessário ativar a depuração para todas elas.
 
-**Example**
+**Exemplo**
 
 ```php
 $logFile = './client_debug_test.log';
@@ -203,11 +200,7 @@ $this->client->debug($logFileResource)->to('post')->withBody([
 
 fclose($logFileResource);
 ```
+Os logs serão salvos no arquivo `client_debug_test.log`.
 
-This writes Guzzle's debug information to `client_debug_test.log`.
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-[manual]: http://guzzle.readthedocs.org/en/latest/
+## Postman
+Acesse o [Postman Collection do WPPConnect](https://www.postman.com/hbdbim/workspace/wppconnect-server) com todos os endpoints.
