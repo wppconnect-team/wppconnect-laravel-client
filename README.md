@@ -210,4 +210,4 @@ fclose($logFileResource);
 Os logs serão salvos no arquivo `client_debug_test.log`.
 
 ## Postman
-Acesse o [Postman Collection do WPPConnect](https://www.postman.com/hbdbim/workspace/wppconnect-server) com todos os endpoints.
+Acesse o [Postman Collection do WPPConnect](https://documenter.getpostman.com/view/9139457/TzshF4jQ) com todos os endpoints.
