@@ -109,7 +109,7 @@ class WppconnectController extends Controller
             Wppconnect::make($this->url);
             $response = Wppconnect::to('/api/'.$this->session.'/'.$this->key.'/generate-token')->asJson()->post();
             $response = json_decode($response->getBody()->getContents(),true);
-            if($response['status'] == 'Success'):
+            if($response['status'] == 'success'):
                 Session::put('token', $response['token']);
                 Session::put('session', $response['session']);
             endif;
